@@ -8,10 +8,10 @@ namespace SeaSharp_Restaurang_och_Aktiviteter.Models
 {
     public class ModelsContext : DbContext
     {
-        public DbSet<Activity> Activities;
-        public DbSet<Menu> Menus;
-        public DbSet<MenuOptions> MenuOptions;
-        public DbSet<Reservation> Reservations;
+        public DbSet<Activity> Activities { get; set;}
+        public DbSet<Menu> Menus { get; set;}
+        public DbSet<MenuOptions> MenuOptions { get; set;}
+        public DbSet<Reservation> Reservations { get; set;}
 
         public ModelsContext(DbContextOptions options) : base(options)
         {
