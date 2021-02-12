@@ -7,6 +7,7 @@ using SeaSharp_Restaurang_och_Aktiviteter.Models;
 
 namespace SeaSharp_Restaurang_och_Aktiviteter.Models
 {
+    //a
     public class ModelsContext : DbContext
     {
         public DbSet<Activity> Activities { get; set;}
