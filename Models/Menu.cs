@@ -10,6 +10,6 @@ namespace SeaSharp_Restaurang_och_Aktiviteter.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public List<MenuOptions> MenuOptions { get; } = new List<MenuOptions>();
+        public List<MenuCategory> MenuCategory { get; } = new List<MenuCategory>();
     }
 }
