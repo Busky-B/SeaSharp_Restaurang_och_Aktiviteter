@@ -11,6 +11,7 @@ namespace SeaSharp_Restaurang_och_Aktiviteter.Models
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
         public int Customers { get; set; }
+        public int TableNum { get; set; }
 
     }
 }
