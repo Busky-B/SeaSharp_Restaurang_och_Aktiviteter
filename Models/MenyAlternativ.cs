@@ -16,8 +16,8 @@ namespace SeaSharp_Restaurang_och_Aktiviteter.Models
 
 
 
-        public int MenuId { get; set; }
-        public Menu Menu { get; set; }
+        public int MenuCategoryId { get; set; }
+        public MenuCategory MenuCategory { get; set; }
 
 
     }
