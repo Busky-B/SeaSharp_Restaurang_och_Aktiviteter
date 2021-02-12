@@ -11,47 +11,47 @@ namespace SeaSharp_Restaurang_och_Aktiviteter.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class MenusController : ControllerBase
+    public class MenuItemsController : ControllerBase
     {
         private readonly ModelsContext _context;
 
-        public MenusController(ModelsContext context)
+        public MenuItemsController(ModelsContext context)
         {
             _context = context;
         }
 
-        // GET: api/Menus
+        // GET: api/MenuItems
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Menu>>> GetMenus()
+        public async Task<ActionResult<IEnumerable<MenuItems>>> GetMenuItems()
         {
-            return await _context.Menus.ToListAsync();
+            return await _context.MenuItems.ToListAsync();
         }
 
-        // GET: api/Menus/5
+        // GET: api/MenuItems/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Menu>> GetMenu(int id)
+        public async Task<ActionResult<MenuItems>> GetMenuItems(int id)
         {
-            var menu = await _context.Menus.FindAsync(id);
+            var menuItems = await _context.MenuItems.FindAsync(id);
 
-            if (menu == null)
+            if (menuItems == null)
             {
                 return NotFound();
             }
 
-            return menu;
+            return menuItems;
         }
 
-        // PUT: api/Menus/5
+        // PUT: api/MenuItems/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutMenu(int id, Menu menu)
+        public async Task<IActionResult> PutMenuItems(int id, MenuItems menuItems)
         {
-            if (id != menu.Id)
+            if (id != menuItems.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(menu).State = EntityState.Modified;
+            _context.Entry(menuItems).State = EntityState.Modified;
 
             try
             {
@@ -59,7 +59,7 @@ namespace SeaSharp_Restaurang_och_Aktiviteter.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!MenuExists(id))
+                if (!MenuItemsExists(id))
                 {
                     return NotFound();
                 }
@@ -72,36 +72,36 @@ namespace SeaSharp_Restaurang_och_Aktiviteter.Controllers
             return NoContent();
         }
 
-        // POST: api/Menus
+        // POST: api/MenuItems
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Menu>> PostMenu(Menu menu)
+        public async Task<ActionResult<MenuItems>> PostMenuItems(MenuItems menuItems)
         {
-            _context.Menus.Add(menu);
+            _context.MenuItems.Add(menuItems);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetMenu", new { id = menu.Id }, menu);
+            return CreatedAtAction("GetMenuItems", new { id = menuItems.Id }, menuItems);
         }
 
-        // DELETE: api/Menus/5
+        // DELETE: api/MenuItems/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteMenu(int id)
+        public async Task<IActionResult> DeleteMenuItems(int id)
         {
-            var menu = await _context.Menus.FindAsync(id);
-            if (menu == null)
+            var menuItems = await _context.MenuItems.FindAsync(id);
+            if (menuItems == null)
             {
                 return NotFound();
             }
 
-            _context.Menus.Remove(menu);
+            _context.MenuItems.Remove(menuItems);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool MenuExists(int id)
+        private bool MenuItemsExists(int id)
         {
-            return _context.Menus.Any(e => e.Id == id);
+            return _context.MenuItems.Any(e => e.Id == id);
         }
     }
 }

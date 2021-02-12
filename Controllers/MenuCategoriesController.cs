@@ -11,47 +11,47 @@ namespace SeaSharp_Restaurang_och_Aktiviteter.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class MenuOptionsController : ControllerBase
+    public class MenuCategoriesController : ControllerBase
     {
         private readonly ModelsContext _context;
 
-        public MenuOptionsController(ModelsContext context)
+        public MenuCategoriesController(ModelsContext context)
         {
             _context = context;
         }
 
-        // GET: api/MenuOptions
+        // GET: api/MenuCategories
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<MenuOptions>>> GetMenuOptions()
+        public async Task<ActionResult<IEnumerable<MenuCategory>>> GetMenuCategory()
         {
-            return await _context.MenuOptions.ToListAsync();
+            return await _context.MenuCategory.ToListAsync();
         }
 
-        // GET: api/MenuOptions/5
+        // GET: api/MenuCategories/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<MenuOptions>> GetMenuOptions(int id)
+        public async Task<ActionResult<MenuCategory>> GetMenuCategory(int id)
         {
-            var menuOptions = await _context.MenuOptions.FindAsync(id);
+            var menuCategory = await _context.MenuCategory.FindAsync(id);
 
-            if (menuOptions == null)
+            if (menuCategory == null)
             {
                 return NotFound();
             }
 
-            return menuOptions;
+            return menuCategory;
         }
 
-        // PUT: api/MenuOptions/5
+        // PUT: api/MenuCategories/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutMenuOptions(int id, MenuOptions menuOptions)
+        public async Task<IActionResult> PutMenuCategory(int id, MenuCategory menuCategory)
         {
-            if (id != menuOptions.Id)
+            if (id != menuCategory.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(menuOptions).State = EntityState.Modified;
+            _context.Entry(menuCategory).State = EntityState.Modified;
 
             try
             {
@@ -59,7 +59,7 @@ namespace SeaSharp_Restaurang_och_Aktiviteter.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!MenuOptionsExists(id))
+                if (!MenuCategoryExists(id))
                 {
                     return NotFound();
                 }
@@ -72,36 +72,36 @@ namespace SeaSharp_Restaurang_och_Aktiviteter.Controllers
             return NoContent();
         }
 
-        // POST: api/MenuOptions
+        // POST: api/MenuCategories
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<MenuOptions>> PostMenuOptions(MenuOptions menuOptions)
+        public async Task<ActionResult<MenuCategory>> PostMenuCategory(MenuCategory menuCategory)
         {
-            _context.MenuOptions.Add(menuOptions);
+            _context.MenuCategory.Add(menuCategory);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetMenuOptions", new { id = menuOptions.Id }, menuOptions);
+            return CreatedAtAction("GetMenuCategory", new { id = menuCategory.Id }, menuCategory);
         }
 
-        // DELETE: api/MenuOptions/5
+        // DELETE: api/MenuCategories/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteMenuOptions(int id)
+        public async Task<IActionResult> DeleteMenuCategory(int id)
         {
-            var menuOptions = await _context.MenuOptions.FindAsync(id);
-            if (menuOptions == null)
+            var menuCategory = await _context.MenuCategory.FindAsync(id);
+            if (menuCategory == null)
             {
                 return NotFound();
             }
 
-            _context.MenuOptions.Remove(menuOptions);
+            _context.MenuCategory.Remove(menuCategory);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool MenuOptionsExists(int id)
+        private bool MenuCategoryExists(int id)
         {
-            return _context.MenuOptions.Any(e => e.Id == id);
+            return _context.MenuCategory.Any(e => e.Id == id);
         }
     }
 }
