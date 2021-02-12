@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using SeaSharp_Restaurang_och_Aktiviteter.Models;
 
 namespace SeaSharp_Restaurang_och_Aktiviteter.Models
 {
@@ -17,5 +18,7 @@ namespace SeaSharp_Restaurang_och_Aktiviteter.Models
         {
 
         }
+
+        public DbSet<SeaSharp_Restaurang_och_Aktiviteter.Models.Reservation> Reservation { get; set; }
     }
 }
