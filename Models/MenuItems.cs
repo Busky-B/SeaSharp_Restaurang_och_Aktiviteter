@@ -5,8 +5,6 @@ using System.Threading.Tasks;
 
 namespace SeaSharp_Restaurang_och_Aktiviteter.Models 
 {
-
-
 	// Ny Modell för MenuOptions => MenuItems
 	public class MenuItems
 	{
@@ -16,7 +14,7 @@ namespace SeaSharp_Restaurang_och_Aktiviteter.Models
         public string Allergies { get; set; }
         public decimal Price { get; set; }
 
-		public int MenuCategoryId { get; set; }
-		public MenuCategory MenuCategory{ get; set; }
+	public int MenuCategoryId { get; set; }
+	public MenuCategory MenuCategory{ get; set; }
 	}
 }
