@@ -7,12 +7,15 @@ using SeaSharp_Restaurang_och_Aktiviteter.Models;
 
 namespace SeaSharp_Restaurang_och_Aktiviteter.Models
 {
+    //a
     public class ModelsContext : DbContext
     {
         public DbSet<Activity> Activities { get; set;}
         public DbSet<Menu> Menus { get; set;}
-        public DbSet<MenuOptions> MenuOptions { get; set;}
+        public DbSet<MenuItems> MenuItems { get; set;}
         public DbSet<Reservation> Reservations { get; set;}
+        public DbSet<MenuCategory> MenuCategory { get; set; }
+
 
         public ModelsContext(DbContextOptions options) : base(options)
         {
