@@ -9,9 +9,12 @@ namespace SeaSharp_Restaurang_och_Aktiviteter.Models
     {
         public int Id { get; set; }
         public string CustomerName { get; set; }
-        public Activity Activity { get; set; }
         public int NumParticipants { get; set; }
-        public DateTime StartTime { get; set; }
-        public DateTime EndTime { get; set; }
+      
+
+
+        //lagt till keyn, annars blir det knasigt när  man försöker skapa en ny activitybooking via API
+		public int ActivityId { get; set; }
+		public Activity Activity { get; set; }
     }
 }
