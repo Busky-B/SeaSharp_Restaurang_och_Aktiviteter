@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace SeaSharp_Restaurang_och_Aktiviteter.Models
@@ -16,6 +17,8 @@ namespace SeaSharp_Restaurang_och_Aktiviteter.Models
 
 
         // Listan behövs för att underlätta vid sökandet av vad som är bokat till vilken aktivitet.
+
+        [JsonIgnore]
         public List<ActivityBooking> ActivityBookings{ get; } = new List<ActivityBooking>();
 
 

@@ -23,7 +23,11 @@ namespace SeaSharp_Restaurang_och_Aktiviteter.Controllers
         // GET: api/ActivityBookings
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ActivityBooking>>> GetActivityBooking()
+
         {
+            
+
+
             return await _context.ActivityBooking.ToListAsync();
         }
 
@@ -77,9 +81,13 @@ namespace SeaSharp_Restaurang_och_Aktiviteter.Controllers
         [HttpPost]
         public async Task<ActionResult<ActivityBooking>> PostActivityBooking(ActivityBooking activityBooking)
         {
+            var temp = _context.Activities.Find(activityBooking.ActivityId);
+
+            activityBooking.Activity = temp;
+
             _context.ActivityBooking.Add(activityBooking);
             await _context.SaveChangesAsync();
-
+            
             return CreatedAtAction("GetActivityBooking", new { id = activityBooking.Id }, activityBooking);
         }
 

@@ -24,7 +24,10 @@ namespace SeaSharp_Restaurang_och_Aktiviteter.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Activity>>> GetActivities()
         {
-            return await _context.Activities.ToListAsync();
+            var lista = await _context.Activities.Include(x => x.ActivityBookings).ToListAsync();
+
+            return lista;
+          //  return await _context.Activities.ToListAsync();
         }
 
         // GET: api/Activities/5

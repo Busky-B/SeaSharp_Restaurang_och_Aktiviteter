@@ -77,6 +77,8 @@ namespace SeaSharp_Restaurang_och_Aktiviteter.Controllers
         [HttpPost]
         public async Task<ActionResult<MenuItems>> PostMenuItems(MenuItems menuItems)
         {
+         
+
             _context.MenuItems.Add(menuItems);
             await _context.SaveChangesAsync();
 
