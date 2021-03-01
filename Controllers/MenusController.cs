@@ -23,20 +23,14 @@ namespace SeaSharp_Restaurang_och_Aktiviteter.Controllers
             _context = context;
         }
 
-        //[HttpGet ("{Menus}")]
-        //public async Task<ActionResult<IEnumerable<Menu>>> GetCompleteMenu(List<Menu> menus)
-        //{
-        //    var menu = _context.Menus.Include(h => h.MenuCategory)
-        //        .ThenInclude(menuCategory=>menuCategory.MenuItems);
-            
-        //    return await menu.ToListAsync();
-        //}
 
         // GET: api/Menus
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Menu>>> GetMenus()
         {
-            return await _context.Menus.ToListAsync();
+            var lista = await _context.Menus.Include(x => x.MenuCategories).ToListAsync();
+
+            return lista;
         }
 
         // GET: api/Menus/5
@@ -54,7 +48,6 @@ namespace SeaSharp_Restaurang_och_Aktiviteter.Controllers
         }
 
         // PUT: api/Menus/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public async Task<IActionResult> PutMenu(int id, Menu menu)
         {

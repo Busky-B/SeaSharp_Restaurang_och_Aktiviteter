@@ -24,10 +24,7 @@ namespace SeaSharp_Restaurang_och_Aktiviteter.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<MenuItems>>> GetMenuItems()
         {
-            var mi = _context.MenuItems.Include(i => i.MenuCategory).
-                ThenInclude(category=>category.Menu);
-
-            return await mi.ToListAsync();
+            return await _context.MenuItems.ToListAsync();
         }
 
         // GET: api/MenuItems/5
@@ -80,8 +77,10 @@ namespace SeaSharp_Restaurang_och_Aktiviteter.Controllers
         [HttpPost]
         public async Task<ActionResult<MenuItems>> PostMenuItems(MenuItems menuItems)
         {
-         
 
+            var temp = _context.MenuCategory.Find(menuItems.MenuCategoryId);
+
+            menuItems.MenuCategory = temp;
             _context.MenuItems.Add(menuItems);
             await _context.SaveChangesAsync();
 

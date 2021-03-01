@@ -14,6 +14,6 @@ namespace SeaSharp_Restaurang_och_Aktiviteter.Models
 
 
         [JsonIgnore]
-        public List<MenuCategory> MenuCategory { get; } = new List<MenuCategory>();
+        public List<MenuCategory> MenuCategories { get; } = new List<MenuCategory>();
     }
 }
