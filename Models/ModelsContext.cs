@@ -24,5 +24,7 @@ namespace SeaSharp_Restaurang_och_Aktiviteter.Models
         }
 
         public DbSet<SeaSharp_Restaurang_och_Aktiviteter.Models.Reservation> Reservation { get; set; }
+
+        public DbSet<SeaSharp_Restaurang_och_Aktiviteter.Models.RestaurantInfo> RestaurantInfo { get; set; }
     }
 }
