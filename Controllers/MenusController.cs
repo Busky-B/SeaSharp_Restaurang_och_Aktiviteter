@@ -9,6 +9,9 @@ using SeaSharp_Restaurang_och_Aktiviteter.Models;
 
 namespace SeaSharp_Restaurang_och_Aktiviteter.Controllers
 {
+    //FULLMENU
+
+
     [Route("api/[controller]")]
     [ApiController]
     public class MenusController : ControllerBase
@@ -19,6 +22,15 @@ namespace SeaSharp_Restaurang_och_Aktiviteter.Controllers
         {
             _context = context;
         }
+
+        //[HttpGet ("{Menus}")]
+        //public async Task<ActionResult<IEnumerable<Menu>>> GetCompleteMenu(List<Menu> menus)
+        //{
+        //    var menu = _context.Menus.Include(h => h.MenuCategory)
+        //        .ThenInclude(menuCategory=>menuCategory.MenuItems);
+            
+        //    return await menu.ToListAsync();
+        //}
 
         // GET: api/Menus
         [HttpGet]
