@@ -12,7 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-
+using System.IO;
 namespace SeaSharp_Restaurang_och_Aktiviteter
 {
 	public class Startup
@@ -39,8 +39,10 @@ namespace SeaSharp_Restaurang_och_Aktiviteter
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-		public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+		public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory logFactory)
 		{
+			var logPath = Directory.GetCurrentDirectory();
+			logFactory.AddFile($"{logPath}\\Logs\\Log.txt");
 			if (env.IsDevelopment())
 			{
 				app.UseDeveloperExceptionPage();

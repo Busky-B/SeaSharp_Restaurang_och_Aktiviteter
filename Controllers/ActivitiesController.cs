@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using SeaSharp_Restaurang_och_Aktiviteter.Models;
 
 namespace SeaSharp_Restaurang_och_Aktiviteter.Controllers
@@ -14,10 +15,12 @@ namespace SeaSharp_Restaurang_och_Aktiviteter.Controllers
     public class ActivitiesController : ControllerBase
     {
         private readonly ModelsContext _context;
+        private readonly ILogger<ActivitiesController> _logger;
 
-        public ActivitiesController(ModelsContext context)
+        public ActivitiesController(ModelsContext context, ILogger<ActivitiesController> logger)
         {
             _context = context;
+            _logger = logger;
         }
 
         // GET: api/Activities
