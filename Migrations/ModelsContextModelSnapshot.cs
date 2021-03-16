@@ -160,6 +160,27 @@ namespace SeaSharp_Restaurang_och_Aktiviteter.Migrations
                     b.ToTable("Reservation");
                 });
 
+            modelBuilder.Entity("SeaSharp_Restaurang_och_Aktiviteter.Models.RestaurantInfo", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("Closed")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DayName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Open")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("RestaurantInfo");
+                });
+
             modelBuilder.Entity("SeaSharp_Restaurang_och_Aktiviteter.Models.ActivityBooking", b =>
                 {
                     b.HasOne("SeaSharp_Restaurang_och_Aktiviteter.Models.Activity", "Activity")

@@ -16,7 +16,7 @@ namespace SeaSharp_Restaurang_och_Aktiviteter.Models
         public DbSet<Reservation> Reservations { get; set;}
         public DbSet<MenuCategory> MenuCategory { get; set; }
         public DbSet<ActivityBooking> ActivityBooking { get; set; }
-
+        public DbSet<RestaurantInfo> RestaurantInfo { get; set; }
 
         public ModelsContext(DbContextOptions options) : base(options)
         {

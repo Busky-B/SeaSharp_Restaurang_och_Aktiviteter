@@ -10,7 +10,7 @@ using SeaSharp_Restaurang_och_Aktiviteter.Models;
 namespace SeaSharp_Restaurang_och_Aktiviteter.Migrations
 {
     [DbContext(typeof(ModelsContext))]
-    [Migration("20210316114930_azure")]
+    [Migration("20210316115259_azure")]
     partial class azure
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -160,6 +160,27 @@ namespace SeaSharp_Restaurang_och_Aktiviteter.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Reservation");
+                });
+
+            modelBuilder.Entity("SeaSharp_Restaurang_och_Aktiviteter.Models.RestaurantInfo", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("Closed")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DayName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Open")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("RestaurantInfo");
                 });
 
             modelBuilder.Entity("SeaSharp_Restaurang_och_Aktiviteter.Models.ActivityBooking", b =>
