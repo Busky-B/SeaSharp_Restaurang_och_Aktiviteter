@@ -8,8 +8,8 @@ namespace SeaSharp_Restaurang_och_Aktiviteter.Models
     public class RestaurantInfo
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public DateTime Open { get; set; }
-        public DateTime Closed { get; set; }
+        public string DayName { get; set; }
+        public string Open { get; set; }
+        public string Closed { get; set; }
     }
 }
