@@ -34,7 +34,7 @@ namespace SeaSharp_Restaurang_och_Aktiviteter
 				c.SwaggerDoc("v1", new OpenApiInfo { Title = "SeaSharp_Restaurang_och_Aktiviteter", Version = "v1" });
 			});
 			services.AddDbContext<ModelsContext>(options =>
-			options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+			options.UseSqlServer(Configuration.GetConnectionString("BackupConnection")));
 
 		}
 
