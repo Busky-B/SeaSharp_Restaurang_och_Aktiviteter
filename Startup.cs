@@ -35,6 +35,12 @@ namespace SeaSharp_Restaurang_och_Aktiviteter
 			});
 			services.AddDbContext<ModelsContext>(options =>
 			options.UseSqlServer(Configuration.GetConnectionString("BackupConnection")));
+			services.AddCors(options => options.AddPolicy("ResAktPolicy", builder =>
+            {
+                builder.AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader();
+            }));
 
 		}
 
@@ -53,10 +59,11 @@ namespace SeaSharp_Restaurang_och_Aktiviteter
 			app.UseRouting();
 
 			app.UseAuthorization();
+			app.UseCors("MyPolicy");
 
 			app.UseEndpoints(endpoints =>
 			{
-				endpoints.MapControllers();
+				endpoints.MapControllers().RequireCors("ResAktPolicy");
 			});
 		}
 	}
